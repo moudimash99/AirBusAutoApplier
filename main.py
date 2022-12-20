@@ -13,15 +13,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.common.exceptions import TimeoutException
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
-def is_stage():
-    get_p1
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 def press_button(path,sleep,xpath):
     if xpath:
         # WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.xpath, path)))
@@ -145,7 +137,7 @@ if __name__ == '__main__':
     file_object = open('missed_links.txt', 'a')
     file = open('succ_links.txt', 'a')
     options = webdriver.ChromeOptions()
-    options.add_argument("user-data-dir=C:\\Users\\moudimash\\Documents\\Selenium")
+    options.add_argument("user-data-dir=C:\\Users\\moudimash\\Documents\\te\\SeleniumChrome")
     options.add_argument("disable-infobars");
     driver = webdriver.Chrome(executable_path=r'./chromedriver',chrome_options=options)
         # options.add_argument('--profile-directory=Profile 4')
@@ -153,11 +145,10 @@ if __name__ == '__main__':
     x = driver.get(links[1])
     time.sleep(10)
     sign_in(driver)
-    i = 0
+    
     try:
         for link in links:
-            if i > 0:
-                break
+            
             try:
                 x = driver.get(link)
                 time.sleep(10)
