@@ -81,7 +81,7 @@ def sign_in(driver):
     # Idempotent sign-in sequence (if already signed in, it just times out gracefully)
     try:
         wait_click(driver, path.signin_xpath, timeout=8)
-        wait_click(driver, path.signin_xpath, timeout=8)
+        # wait_click(driver, path.signin_xpath, timeout=8)
         wait_click(driver, path.signin2_xpath, timeout=8)
     except TimeoutException:
         pass  # likely already signed in
