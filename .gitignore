@@ -1,2 +1,6 @@
 bookmarks_9_23_22.html
 missed_links.txt
+*/output/*
+*/__pycache__/*
+.venv/*
+output/*
