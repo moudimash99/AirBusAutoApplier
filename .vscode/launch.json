@@ -15,7 +15,6 @@
             "name": "Python Debugger: Launch main.py",
             "type": "debugpy",
             "request": "launch",
-            // Adjust path if your main.py is in a subfolder
             "program": "${workspaceFolder}/main.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",

@@ -4,8 +4,8 @@ import time
 class HumanResumeTimeoutError(Exception):
     """Raised when no human input is received before timeout."""
     pass
-
-def pause_for_human_resume(timeout=300):
+#allow boolean to raise an error or not if not pressed in time
+def pause_for_human_resume(timeout=300, raise_on_timeout=True):
     """
     Pause execution until the user presses Enter or the timeout elapses.
     If the timeout elapses with no input, raise HumanResumeTimeoutError.
@@ -20,7 +20,7 @@ def pause_for_human_resume(timeout=300):
     threading.Thread(target=wait_for_input, daemon=True).start()
     print(f"(Auto-cancel in {timeout//60} min if no input)\n")
 
-    if not resume_event.wait(timeout):
+    if not resume_event.wait(timeout) and raise_on_timeout:
         # Timed out without human action
         raise HumanResumeTimeoutError(
             f"No input received after {timeout} seconds; aborting."

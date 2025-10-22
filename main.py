@@ -23,15 +23,18 @@ def sign_in_if_present(ux: UX):
 def apply_one(driver, link: str) -> bool:
     ux = UX(driver, CFG.timeout_s, CFG.micro_wait_s)
     driver.get(link)
-    job_description_text, job_name = extract_job_description(driver,link, timeout=10, expand_show_more=True)
+    job_name,job_description_text = extract_job_description(driver,link, timeout=10, expand_show_more=True)
     latex_file_path = create_latex_CV(job_description_text)
     cv_path = build_pdf(Path(latex_file_path),jobname=job_name)
     # make sure that the CV is no more than 1 page, if it is , then paut a pause for 5 minutes that can be resumed by a human
 
     if not pdf_is_1_page(cv_path):
         print(f"CV {cv_path} has more than 1 page. Pausing for manual review.")
-        pause_for_human_resume(300)
-        
+        pause_for_human_resume(300,raise_on_timeout=True)
+    else:
+        print(f"CV {cv_path} is 1 page. Pausing for review.")
+        pause_for_human_resume(180, raise_on_timeout=False)
+
 
     job = JobPage(ux)
     job.start_application()

@@ -4,7 +4,7 @@ from typing import List
 # pip install beautifulsoup4 (only needed the first time)
 from bs4 import BeautifulSoup
 
-def get_links(bookmarks_file: Path, folder_name: str = "Airbus Applying") -> List[str]:
+def get_links(folder_name: str = "Airbus Applying") -> List[str]:
     """
     Return every link (<A HREF=…>) that sits inside one specific bookmark folder.
 
@@ -20,7 +20,15 @@ def get_links(bookmarks_file: Path, folder_name: str = "Airbus Applying") -> Lis
     ValueError
         If the folder is not present in the file.
     """
-    html = bookmarks_file.read_text(encoding="utf-8", errors="ignore")
+    l = []
+    input_dir = Path("input")
+    files = list(input_dir.glob("bookmarks*"))
+    if not files:
+        raise FileNotFoundError("No bookmarks files starting with 'bookmarks' found in 'input/'")
+    latest_file = max(files, key=lambda p: p.stat().st_mtime)
+    # f = latest_file.open("r", encoding="utf-8")
+    # lines = f.readlines()
+    html = latest_file.read_text(encoding="utf-8", errors="ignore")
     soup = BeautifulSoup(html, "html.parser")
 
     # Find the <H3> whose visible text matches the folder we want
