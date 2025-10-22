@@ -1,0 +1,166 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mohammad Machaka — One-Page CV (truthful + JD-aligned, Airbus PDP/IDL)
+% XeLaTeX • deedy-resume-reversed class
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt]{deedy-resume-reversed}
+\usepackage{amsmath}
+\usepackage{fontspec}
+\setmainfont{Noto Sans}
+\setsansfont{Noto Sans}
+\newcommand{\edit}[1]{#1}
+\newenvironment{editblock}{}{}
+\newcommand{\skillsec}[2]{\subsection{\edit{#1}}\edit{#2}\sectionsep}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+
+% Tight spacing for one page
+\renewcommand{\sectionsep}{\vspace{4pt}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+
+\begin{document}
+
+%================= HEADER =================
+\namesection{Mohammad Machaka}{%
+  \href{mailto:machaka.mohammad@gmail.com}{machaka.mohammad@gmail.com}
+  ~~|~~ +33\,(0)\,7\,53\,37\,78\,23
+  ~~|~~ Toulouse, FR
+  ~~|~~ \href{https://mohammad.machaka.net}{mohammad.machaka.net}
+  ~~|~~ \href{https://linkedin.com/in/mohammad-machaka-a63685172}{linkedin.com/in/mohammad-machaka-a63685172}
+}
+
+%============= TWO COLUMNS ===============
+\begin{minipage}[t]{0.30\textwidth}
+
+% ---- Profile (plain, JD-aware, no over-claims) ----
+\section{Profile}
+{\small
+Systems-minded software and cloud engineer (AWS SAA-C03) currently deepening my systems perspective through the ISAE-SUPAERO SEN programme.  
+I enjoy designing tools that make complex data easier to trust and act on.  
+Recent work includes building Airflow pipelines for satellite imagery, re-engineering map-tile services with Google Earth Engine, and deploying real-time monitoring that made issues visible before they became problems.  
+I’m motivated by clarity, reliability, and turning data into insight that teams can actually use.
+}
+
+\sectionsep
+
+% ---- Skills (concise, accurate, JD-friendly) ----
+\section{Skills}
+{\normalsize
+\skillsec{Systems Engineering}{
+Requirements & ICDs • V-model • V&V • ISO/IEC 15288 • SysML/Capella* • DOORS* • Lifecycle mindset & traceability
+}
+
+\skillsec{Data / Geospatial}{
+Airflow/ETL orchestration • Rasterio/GDAL • Google Earth Engine • Data cleaning & automation
+}
+\skillsec{Cloud / DevOps}{
+AWS  • Terraform • Kubernetes • Docker • Helm • GitHub Actions • IaC & CI/CD pipelines
+}
+\skillsec{Software Engineering}{
+Python/FastAPI • Node/Express (TypeScript) • C++ • REST API design • PostGIS • MongoDB • Redis 
+}
+\skillsec{Observability & Reliability}{
+Prometheus • Grafana • Alertmanager • SLOs & alerting design • Service health dashboards • Tracing/logging culture
+}
+
+}
+\sectionsep
+
+\sectionsep
+
+% ---- Certifications ----
+\section{Certifications}
+\textbf{AWS Solutions Architect — Associate (SAA\=/C03)}\\
+\sectionsep
+
+% ---- Languages ----
+\section{Languages}
+English (Fluent) • French (Advanced) • Arabic (Fluent)
+\sectionsep
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.67\textwidth}
+
+% ---- Experience ----
+\section{Experience}
+
+\runsubsection{Green Praxis}
+\descript{| Cloud \& Data Engineer \textbullet\ Permanent}
+\location{Jan 2025 -- Aug 2025 • Aix\=/en\=/Provence, FR}
+\vspace{\topsep}
+
+\begin{editblock}
+\begin{tightemize}
+  \item Built and maintained \textbf{Airflow} DAGs to ingest multi\=/band Sentinel/Landsat scenes (cloud mask, reprojection, mosaics with Rasterio/GDAL) and record metadata in MongoDB.
+  \item Re\=/architected static tiles to \textbf{on\=/demand} rendering (FastAPI + Google Earth Engine + Redis): storage \(\downarrow\)\textbf{~80\%}; map refresh $<$30\,min; ingestion throughput \(\uparrow\)\textbf{$\times$6}.
+  \item Deployed \textbf{Prometheus/Grafana/Alertmanager} and instrumented services; alerts cover critical paths and support SLO tracking.
+\end{tightemize}
+\end{editblock}
+\textbf{Stack:} Terraform, AWS (EKS/EC2/S3/IAM), Kubernetes, Airflow, Prometheus, Grafana, FastAPI, Express.js (TS), Python, Docker, MongoDB, Redis
+\sectionsep
+
+\runsubsection{Airbus}
+\descript{| Data Engineer \textbullet\ Apprenticeship/Internship}
+\location{Jan 2023 -- Jun 2024 • Toulouse (Saint\=/Martin), FR}
+\begin{editblock}
+\begin{tightemize}
+  \item Developed \textbf{C++} real\=/time data streams for the OPTIMATE programme (high throughput; profiling and robustness improvements).
+  \item Built \textbf{Python} ETL to collect, clean, and standardise HR datasets across 5 regions; reduced dashboard release time by \textbf{\(\sim\)80\%}.
+  \item Wrote concise indicators and runbooks so teams could reuse and maintain the pipelines.
+\end{tightemize}
+\end{editblock}
+\textbf{Stack:} C++, Python, PostGIS, Workday, Postman, Azure DevOps, Jenkins, Docker
+\sectionsep
+
+\runsubsection{Murex Systems}
+\descript{| Software Architect \textbullet\ Project Lead}
+\location{May 2021 -- Jan 2022 • Beirut, LB}
+\begin{editblock}
+\begin{tightemize}
+  \item Designed a log\=/analysis demonstrator that surfaced \textbf{50+} previously unseen error patterns; improved time\=/to\=/root\=/cause.
+  \item Shipped an MVP on Kubernetes/Docker with Terraform CI/CD; led a 3\=/developer Scrum team (scope, reviews, delivery).
+\end{tightemize}
+\end{editblock}
+\textbf{Stack:} Python, Jenkins, Docker, Terraform, Kubernetes
+\sectionsep
+
+% ---- Education (right column) ----
+\section{Education}
+% simple hyphen
+\runsubsection{ISAE-SUPAERO}
+\descript{| Mastère Spécialisé\textsuperscript{\textregistered} Systems Engineering (SEN)}
+\location{Sep 2025 -- Oct 2026 (exp.) • Toulouse}
+
+\begin{editblock}
+\begin{tightemize}
+  \item Focus: MBSE (SysML/Capella), requirements/ICDs, system architecture, V\&V, lifecycle (ISO/IEC 15288).
+\end{tightemize}
+\end{editblock}
+\sectionsep
+
+\runsubsection{Univ. Toulouse III — Paul Sabatier}
+\descript{| M.Sc. Computer Science for Aerospace}
+\location{Sep 2021 -- Jun 2024 • Toulouse}
+\sectionsep
+
+\runsubsection{American Univ. of Beirut}
+\descript{| B.Sc. Computer Science • Minor Business Adminstration}
+\location{Sep 2017 -- Jun 2020 • Beirut}
+\begin{editblock}
+\begin{tightemize}
+  \item LCPC Competitive Programming — 2\textsuperscript{nd} place; Valedictorian 2017/18.
+\end{tightemize}
+\end{editblock}
+\sectionsep
+
+% ---- Projects (selected) ----
+\section{Projects (selected)}
+\textbf{SUNSPEAR} — Systems Engineer: CONOPS; needs\(\rightarrow\)requirements; ICD skeletons; V\&V approach; review packets (SRR/PDR\=/like). \\
+\textbf{HydroART} — Systems Engineer: Mission architecture; preliminary budgets; interface control; verification matrix.
+
+\end{minipage}
+
+\end{document}
+

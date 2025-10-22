@@ -1,0 +1,148 @@
+\documentclass[10pt]{deedy-resume-reversed}
+\usepackage{amsmath}
+\usepackage{fontspec}
+\setmainfont{Noto Sans}
+\setsansfont{Noto Sans}
+\newcommand{\edit}[1]{#1}
+\newenvironment{editblock}{}{}
+\newcommand{\skillsec}[2]{\subsection{\edit{#1}}\edit{#2}\sectionsep}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+
+% Tight spacing for one page
+\renewcommand{\sectionsep}{\vspace{4pt}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+
+\begin{document}
+
+%================= HEADER =================
+\namesection{MACHAKA Mohammad}{%
+\href{mailto:machaka.mohammad@gmail.com}{machaka.mohammad@gmail.com}
+~~|~~ +33 (0)7 53 37 78 23
+~~|~~ Toulouse, FR
+~~|~~ LinkedIn: Mohammad Machaka
+}
+
+%============= TWO COLUMNS ===============
+\begin{minipage}[t]{0.30\textwidth}
+
+% ---- Profile ----
+\section{Profile}
+{\small
+Systems-minded software \& cloud engineer pivoting into Systems Engineering via ISAE-SUPAERO SEN (2025–2026). I drive MBSE adoption by turning stakeholder needs into requirements, architecture, behavior analysis, verification \& test planning, and clear interface contracts (ICDs/traceability). I build compelling demos and integrations in Python/TypeScript/Java, and operate data-intensive services with measurable SLOs and strong observability.
+}
+\sectionsep
+
+% ---- Skills ----
+\section{Skills}
+{\normalsize
+\skillsec{Systems Engineering}{
+Requirements • system architecture • behavior analysis • V\&V \& test planning • ICDs \& interface mgmt • traceability • MBSE (SysML/UML; ARCADIA/Capella) • PLM/CM • DOORS-class tools (exposure)
+}
+\skillsec{Software}{
+Python • JavaScript/TypeScript (Node/Express) • Java • C++ • REST APIs • integrations \& plugins • test automation
+}
+\skillsec{Cloud \& DevOps}{
+AWS • Terraform • Kubernetes • Docker • GitHub Actions • IaC • CI/CD • GitOps
+}
+\skillsec{Data \& Geo}{
+Airflow • Rasterio/GDAL • Google Earth Engine • STAC • MongoDB • Redis • PostGIS
+}
+\skillsec{Enablement}{
+Stakeholder/customer demos • enablement sessions • documentation • runbooks
+}
+}
+\sectionsep
+
+% ---- Certifications ----
+\section{Certifications}
+\textbf{AWS Solutions Architect — Associate (SAA-C03)} (2025)\sectionsep
+Coursera/Stanford — Machine Learning Specialization (2020)\sectionsep
+Cisco — ICND1 (2019)
+\sectionsep
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.67\textwidth}
+
+% ---- Experience ----
+\section{Experience}
+
+\runsubsection{Green Praxis}
+\descript{| Cloud \& Data Engineer \textbullet\ Permanent}
+\location{Jan 2025 -- Present • Aix-en-Provence, FR}
+\vspace{\topsep}
+\begin{editblock}
+\begin{tightemize}
+\item Re-architected static tiles to \textbf{on-demand} rendering (FastAPI + Google Earth Engine + Redis): storage $\downarrow$80\%; map refresh $<$30 min; ingestion throughput $\uparrow\times6$.
+\item Built 15+ \textbf{Airflow} DAGs for Sentinel/Landsat (cloud mask, reprojection, mosaics with Rasterio/GDAL), cataloged via STAC into MongoDB; adopted TaskFlow API to cut parse time $\sim$80\%.
+\item Defined \textbf{interface contracts} across services; added Prometheus/Grafana/Alertmanager coverage (24 dashboards, 35 rules) and delivered \textbf{demos \& runbooks} for internal teams.
+\item Refactored internal API (Node 18/Express, TS): JWT$\rightarrow$PASETO, rate limiting, Jest tests; P95 latency 600ms$\rightarrow$220ms.
+\end{tightemize}
+\end{editblock}
+\textbf{Stack:} AWS (EKS/EC2/S3/IAM), Terraform, Kubernetes, Airflow, FastAPI, Node/Express (TS), Python, MongoDB, Redis
+\sectionsep
+
+\runsubsection{Airbus}
+\descript{| Data Engineer \textbullet\ Internship/Apprenticeship}
+\location{Jan 2023 -- Jun 2024 • Toulouse, FR}
+\begin{editblock}
+\begin{tightemize}
+\item Standardized HR datasets across five regions; automated quality gates \& packaging—dashboard release time $\downarrow\sim$80\%, manual data errors $\downarrow\sim$90\%.
+\item \textbf{OPTIMATE (automated taxiing) exchange:} elicited needs/constraints; mapped producers/consumers with \textbf{interfaces \& SLAs}; designed data-flow architecture and \textbf{built the pipeline} with targeted observability.
+\item Maintained documented interfaces, acceptance criteria, and handover materials; collaborated with global HR, engineering, and operations.
+\end{tightemize}
+\end{editblock}
+\textbf{Stack:} Python, C++, PostGIS, Jenkins, Azure DevOps, Docker
+\sectionsep
+
+\runsubsection{Murex Systems}
+\descript{| Software Architect \textbullet\ Project Lead}
+\location{May 2021 -- Jan 2022 • Beirut, LB}
+\begin{editblock}
+\begin{tightemize}
+\item Conceived a \textbf{log-analysis platform} surfacing 50+ previously unseen error patterns, improving uptime and time-to-resolution.
+\item Led a 3-developer Scrum team; modular architecture with automated tests and CI/CD; \textbf{clear interfaces} and stable deployment paths.
+\item Gathered \& refined requirements with clients; presented findings and maintained documentation for adoption.
+\end{tightemize}
+\end{editblock}
+\textbf{Stack:} Python, Kubernetes, Docker, Terraform, Jenkins
+\sectionsep
+
+% ---- Education ----
+\section{Education}
+
+\runsubsection{ISAE-SUPAERO}
+\descript{| Mastère Spécialisé\textsuperscript{\textregistered} Systems Engineering (SEN)}
+\location{Sep 2025 -- Oct 2026 (expected) • Toulouse}
+\begin{editblock}
+\begin{tightemize}
+\item MBSE (SysML/Capella), requirements engineering, system design \& architecture, behavior analysis, V\&V, dependability/safety, PLM/CM, project mgmt (PERT/EVM); case work: Airbus A350, Dassault Aviation, SoS, space systems. INCOSE ASEP preparation.
+\end{tightemize}
+\end{editblock}
+\sectionsep
+
+\runsubsection{Univ. Toulouse III — Paul Sabatier}
+\descript{| M.Sc. Computer Science for Aerospace}
+\location{Sep 2021 -- Jun 2024 • Toulouse}
+\sectionsep
+
+\runsubsection{American Univ. of Beirut}
+\descript{| B.Sc. Computer Science • Minor Business Administration}
+\location{Sep 2017 -- Jun 2020 • Beirut}
+\begin{editblock}
+\begin{tightemize}
+\item LCPC Competitive Programming — Runner-Up (2019); Valedictorian (2017/18); AGFE Scholar.
+\end{tightemize}
+\end{editblock}
+\sectionsep
+
+% ---- Projects ----
+\section{Projects (selected)}
+\textbf{SUNSPEAR} — Systems Engineer: CONOPS; needs$\rightarrow$requirements; ICDs; V\&V strategy; SRR/SDR packets; decision log \& risk register.\
+\textbf{HydroART} — Systems Engineer: Mission architecture; subsystem decomposition; mass/power/data budgets; interface control; verification cross-reference matrix.
+
+\end{minipage}
+
+\end{document}

@@ -16,6 +16,8 @@ class UX:
     def find(self, xpath: str):
         return W(self.d, self.timeout).until(EC.presence_of_element_located((By.XPATH, xpath)))
 
+    
+
     def click(self, xpath: str):
         el = W(self.d, self.timeout).until(EC.element_to_be_clickable((By.XPATH, xpath)))
         self.d.execute_script("arguments[0].scrollIntoView({block:'center'});", el)

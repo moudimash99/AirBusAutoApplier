@@ -1,0 +1,151 @@
+\documentclass[10pt]{deedy-resume-reversed}
+\usepackage{amsmath}
+\usepackage{fontspec}
+\setmainfont{Noto Sans}
+\setsansfont{Noto Sans}
+\newcommand{\edit}[1]{#1}
+\newenvironment{editblock}{}{}
+\newcommand{\skillsec}[2]{\subsection{\edit{#1}}\edit{#2}\sectionsep}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+
+% Tight spacing for one page
+\renewcommand{\sectionsep}{\vspace{4pt}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+
+\begin{document}
+
+%================= HEADER =================
+\namesection{Mohammad Machaka}{%
+\href{mailto:machaka[.mohammad@gmail.com](mailto:.mohammad@gmail.com)}{[machaka.mohammad@gmail.com](mailto:machaka.mohammad@gmail.com)}
+~~|~~ +33,(0),7,53,37,78,23
+~~|~~ Toulouse, FR
+~~|~~ \href{[https://mohammad.machaka.net}{mohammad.machaka.net}](https://mohammad.machaka.net}{mohammad.machaka.net})
+~~|~~ \href{[https://linkedin.com/in/mohammad-machaka-a63685172}{linkedin.com/in/mohammad-machaka-a63685172}](https://linkedin.com/in/mohammad-machaka-a63685172}{linkedin.com/in/mohammad-machaka-a63685172})
+}
+
+%============= TWO COLUMNS ===============
+\begin{minipage}[t]{0.30\textwidth}
+
+% ---- Profile ----
+\section{Profile}
+{\small
+Systems-minded software & cloud engineer (AWS SAA/C03) completing the ISAE-SUPAERO SEN master in MBSE. I build clear interfaces, reliable data flows, and demos that make complex systems easy to grasp. Recent work covers Airflow pipelines for EO data, on-demand tile services, and dashboards & runbooks adopted by non-technical teams. Strong at turning requirements into architecture, verification, and robust code (Python, TypeScript, Java).
+}
+\sectionsep
+
+% ---- Skills ----
+\section{Skills}
+{\normalsize
+\skillsec{Systems Engineering}{
+MBSE (SysML/Capella) • requirements • architecture • behaviour analysis • V&V • ICDs • traceability • PLM/CM
+}
+\skillsec{Software}{
+Python • JavaScript/TypeScript (Node/Express) • Java • C++ • REST APIs • integrations • test planning
+}
+\skillsec{Cloud & DevOps}{
+AWS • Terraform • Kubernetes • Docker • GitHub Actions • IaC • CI/CD
+}
+\skillsec{Data & Geo}{
+Airflow • Rasterio/GDAL • Google Earth Engine • STAC • MongoDB • Redis • PostGIS
+}
+\skillsec{Enablement}{
+Stakeholder demos • documentation • runbooks • technical talks
+}
+}
+\sectionsep
+
+% ---- Certifications ----
+\section{Certifications}
+\textbf{AWS Solutions Architect — Associate (SAA/C03)}
+\sectionsep
+
+% ---- Languages ----
+\section{Languages}
+English (Fluent) • French (Advanced) • Arabic (Fluent)
+\sectionsep
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.67\textwidth}
+
+% ---- Experience ----
+\section{Experience}
+
+\runsubsection{Green Praxis}
+\descript{| Cloud & Data Engineer \textbullet\ Permanent}
+\location{Jan 2025 -- Present • Aix-en-Provence, FR}
+\vspace{\topsep}
+\begin{editblock}
+\begin{tightemize}
+\item Re-architected static tiles to \textbf{on-demand} rendering (FastAPI + Google Earth Engine + Redis): storage $\downarrow$80%; map refresh $<$30 min; ingestion throughput $\uparrow\times6$.
+\item Built \textbf{Airflow} DAGs for Sentinel/Landsat (cloud mask, reprojection, mosaics with Rasterio/GDAL), catalogued via STAC into MongoDB.
+\item Defined API/interface contracts, \textbf{Prometheus + Grafana + Alertmanager} coverage, and produced demos & runbooks for internal teams.
+\end{tightemize}
+\end{editblock}
+\textbf{Stack:} AWS (EKS/EC2/S3/IAM), Terraform, Kubernetes, Airflow, FastAPI, Node/Express (TS), Python, MongoDB, Redis
+\sectionsep
+
+\runsubsection{Airbus}
+\descript{| Data Engineer \textbullet\ Internship/Apprenticeship}
+\location{Jan 2023 -- Jun 2024 • Toulouse (Saint-Martin), FR}
+\begin{editblock}
+\begin{tightemize}
+\item \textbf{Python} ETL standardising HR datasets across five regions; dashboard release time cut by $\approx$80% through quality gates & packaging.
+\item One-month exchange on \textbf{OPTIMATE} (automated taxiing): mapped producers/consumers, interfaces & SLAs; delivered pipeline and observability.
+\item Contributed \textbf{C++} improvements to real-time streams; documented indicators, runbooks, and handover material for stakeholders.
+\end{tightemize}
+\end{editblock}
+\textbf{Stack:} Python, C++, PostGIS, Jenkins, Azure DevOps, Docker
+\sectionsep
+
+\runsubsection{Murex Systems}
+\descript{| Software Architect \textbullet\ Project Lead}
+\location{May 2021 -- Jan 2022 • Beirut, LB}
+\begin{editblock}
+\begin{tightemize}
+\item Conceived a \textbf{log-analysis demonstrator} surfacing 50+ unseen error patterns and cutting time-to-root-cause.
+\item Led a three-developer Scrum team; shipped on Kubernetes with Terraform CI/CD and automated tests.
+\item Presented findings to stakeholders; maintained docs and enablement material for adoption.
+\end{tightemize}
+\end{editblock}
+\textbf{Stack:} Python, Kubernetes, Docker, Terraform, Jenkins
+\sectionsep
+
+% ---- Education ----
+\section{Education}
+
+\runsubsection{ISAE-SUPAERO}
+\descript{| Mastère Spécialisé\textsuperscript{\textregistered} Systems Engineering (SEN)}
+\location{Sep 2025 -- Oct 2026 (exp.) • Toulouse}
+\begin{editblock}
+\begin{tightemize}
+\item MBSE, requirements engineering, architecture, behaviour analysis, V&V, dependability, PLM/CM; case studies include Airbus A350 & Dassault Aviation.
+\end{tightemize}
+\end{editblock}
+\sectionsep
+
+\runsubsection{Univ. Toulouse III — Paul Sabatier}
+\descript{| M.Sc. Computer Science for Aerospace}
+\location{Sep 2021 -- Jun 2024 • Toulouse}
+\sectionsep
+
+\runsubsection{American Univ. of Beirut}
+\descript{| B.Sc. Computer Science • Minor Business Administration}
+\location{Sep 2017 -- Jun 2020 • Beirut}
+\begin{editblock}
+\begin{tightemize}
+\item LCPC Competitive Programming — 2\textsuperscript{nd} place; Valedictorian 2017/18; AGFE Scholar.
+\end{tightemize}
+\end{editblock}
+\sectionsep
+
+% ---- Projects ----
+\section{Projects (selected)}
+\textbf{SUNSPEAR} — Systems Engineer: CONOPS; needs $\rightarrow$ requirements; ICD skeletons; V&V approach; SRR/SDR-like packets.\
+\textbf{HydroART} — Systems Engineer: Mission architecture; subsystem decomposition; preliminary budgets; interface control; verification matrix.
+
+\end{minipage}
+
+\end{document}

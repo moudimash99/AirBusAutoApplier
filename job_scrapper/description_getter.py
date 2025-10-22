@@ -39,5 +39,5 @@ def extract_job_description(driver, link : str , timeout: int = 15, expand_show_
         EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-automation-id="jobPostingDescription"]'))
     )
     job_description_text = re.sub(r'\n{3,}', '\n\n', desc_el.text or '').strip()
-    job_description_html = desc_el.get_attribute('innerHTML') or ''
-    return job_description_text, job_description_html
+    job_name = driver.title.strip()
+    return job_description_text, job_name

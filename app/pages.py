@@ -1,8 +1,10 @@
 # app/pages.py
+from pathlib import Path
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait as W
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from app.file_uploader import upload_files_example
 import app.path as loc  # your existing locators
 
 class JobPage:
@@ -17,7 +19,18 @@ class JobPage:
         # Sometimes an extra sign-in click
         try: self.u.click(loc.signin2_xpath)
         except: pass
+    def experience_page(self, cv_path: Path):
+        
+        # Delete any pre-uploaded CVs
+        for _ in range(2):
+            try:
+                self.u.click(loc.delete_file)
+            except:
+                break
 
+        upload_files_example( self.u.d, [cv_path])
+        self.u.click(loc.save_cont_path)
+        
     def select_source(self):
         self.u.click(loc.how_hear_path)
         self.u.click(loc.career_website_button_path)
@@ -41,8 +54,7 @@ class JobPage:
         self.u.click(loc.save_cont_path)
 
         # Some flows have an intermediate "Save and Continue"
-        try: self.u.click(loc.save_cont_path)
-        except: pass
+        
 
 class ApplicationWizard:
     def __init__(self, driver, ux: "UX", data):

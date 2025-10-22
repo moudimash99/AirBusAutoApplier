@@ -8,7 +8,7 @@ career_website_button_path = "(//div[normalize-space()='Airbus Careers Website']
 worked_no = "(//input[@id='zphz5'])[1]"
 worked_yes = "(//input[@id='zphz4'])[1]"
 worker_code_id = "(//input[@id='previousWorker--employeeID'])[1]"
-
+delete_file = "//button[@data-automation-id='delete-file']"
 save_cont_path = "(//button[normalize-space()='Save and Continue'])[1]"
 submit = "(//button[normalize-space()='Submit'])[1]"
 semester_level_path = "(//textarea[@id='input-274'])[1]"

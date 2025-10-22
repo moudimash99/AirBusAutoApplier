@@ -4,3 +4,13 @@ missed_links.txt
 */__pycache__/*
 .venv/*
 output/*
+.env
+CV_Generator/Mohammad_CV_2_Parts/mohammad_main_CV.aux
+CV_Generator/Mohammad_CV_2_Parts/mohammad_main_CV.fdb_latexmk
+CV_Generator/Mohammad_CV_2_Parts/mohammad_main_CV.fls
+CV_Generator/Mohammad_CV_2_Parts/mohammad_main_CV.log
+CV_Generator/Mohammad_CV_2_Parts/mohammad_main_CV.out
+CV_Generator/Mohammad_CV_2_Parts/mohammad_main_CV.pdf
+CV_Generator/Mohammad_CV_2_Parts/mohammad_main_CV.xdv
+CV_Generator/Mohammad_CV_2_Parts/publications.bib
+CV_Generator/Mohammad_CV_2_Parts/fonts/*
