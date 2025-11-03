@@ -9,6 +9,7 @@ import app.link_getter
 from job_scrapper.description_getter import extract_job_description
 from CV_Generator.Latex_compiler import build_pdf,pdf_is_1_page
 from CV_Generator.CV_Generator import create_latex_CV
+from CV_Generator.Cover_Letter.Cover_letter_Generator import create_latex_cover_letter
 from utils import pause_for_human_resume
 CFG = SeleniumConfig()
 ME  = CandidateData()
@@ -20,26 +21,76 @@ def sign_in_if_present(ux: UX):
         try: ux.click(xp)
         except: pass  # already signed in / not visible
 
+def build_cv_pdf(job_description_text: Path, job_name: str, link: str) -> Path:
+    # latex_file_path = create_latex_CV(job_description_text)
+    latex_file_path = r"C:\Users\moudi\OneDrive\Documentos\Coing\mission-control-ultra\AirBusAutoApplier\CV_Generator\Mohammad_CV_2_Parts\CV.tex"
+    failed_build = False
+    try:
+        cv_path = build_pdf(job_description_text=job_description_text,jobname=job_name)
+    except Exception as e:
+        print(f"Error building PDF for job {job_name} at {link}: {e}")
+        failed_build = True
+        cv_path = r"C:\Users\moudi\OneDrive\Documentos\Coding\mission-control-ultra\AirBusAutoApplier\CV_Generator\Mohammad_CV_2_Parts\CV.pdf"
+
+        
+    # make sure that the CV is no more than 1 page, if it is , then paut a pause for 5 minutes that can be resumed by a human
+
+    
+    return failed_build, cv_path
+
+def build_cover_letter(job_description_text: Path, job_name: str, link: str) -> Path:
+    latex_file_path = create_latex_cover_letter(job_description_text)
+    failed_build = False
+    try:
+        cover_letter_path = build_pdf(job_description_text=job_description_text,jobname=job_name+"_cover_letter")
+    except Exception as e:
+        print(f"Error building PDF for cover letter {job_name} at {link}: {e}")
+        failed_build = True
+        cover_letter_path = r"C:\Users\moudi\OneDrive\Documentos\Coding\mission-control-ultra\AirBusAutoApplier\CV_Generator\Mohammad_CV_2_Parts\Cover_Letter.pdf"
+
+        
+    # make sure that the cover letter is no more than 1 page, if it is , then paut a pause for 5 minutes that can be resumed by a human
+    return failed_build, cover_letter_path
+def check_pdf_health(failed_cv, cv_path, failed_cl, cover_letter_path):
+    # create a string that shows which one failed
+    cv_failed = bool(failed_cv)
+    cl_failed = bool(failed_cl)
+    cv_one = pdf_is_1_page(cv_path)
+    cl_one = pdf_is_1_page(cover_letter_path)
+
+    failed_any = cv_failed or cl_failed or (not cv_one) or (not cl_one)
+
+    reasons = []
+    if cv_failed:
+        reasons.append("CV build failed")
+    if cl_failed:
+        reasons.append("Cover letter build failed")
+    if not cv_one:
+        reasons.append("CV is >1 page")
+    if not cl_one:
+        reasons.append("Cover letter is >1 page")
+
+    str_failed = ", ".join(reasons) if reasons else "None"
+    if failed_any:
+        print(f"One or more generated documents failed or are >1 page (Reasons: {str_failed}). Pausing for manual review.")
+        pause_for_human_resume(300, raise_on_timeout=True)
+    else:
+        print(f"Generated documents are OK (1 page each). Pausing briefly for review.")
+        pause_for_human_resume(180, raise_on_timeout=False)
+
 def apply_one(driver, link: str) -> bool:
     ux = UX(driver, CFG.timeout_s, CFG.micro_wait_s)
     driver.get(link)
     job_name,job_description_text = extract_job_description(driver,link, timeout=10, expand_show_more=True)
-    latex_file_path = create_latex_CV(job_description_text)
-    cv_path = build_pdf(Path(latex_file_path),jobname=job_name)
-    # make sure that the CV is no more than 1 page, if it is , then paut a pause for 5 minutes that can be resumed by a human
-
-    if not pdf_is_1_page(cv_path):
-        print(f"CV {cv_path} has more than 1 page. Pausing for manual review.")
-        pause_for_human_resume(300,raise_on_timeout=True)
-    else:
-        print(f"CV {cv_path} is 1 page. Pausing for review.")
-        pause_for_human_resume(180, raise_on_timeout=False)
-
-
+    failed_cl , cover_letter_path = build_cover_letter(job_description_text, jobname=job_name, link=link)
+    failed_cv , cv_path = build_cv_pdf(job_description_text, jobname=job_name, link=link)
+    
+    check_pdf_health(failed_cv , cv_path, failed_cl , cover_letter_path)
+    
     job = JobPage(ux)
     job.start_application()
     job.select_source()
-    job.experience_page(cv_path)
+    job.experience_page(cv_path, cover_letter_path)
     wiz = ApplicationWizard(driver, ux, ME)
     # wiz.fill_education()
     wiz.set_contract()

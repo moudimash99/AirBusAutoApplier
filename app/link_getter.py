@@ -4,7 +4,7 @@ from typing import List
 # pip install beautifulsoup4 (only needed the first time)
 from bs4 import BeautifulSoup
 
-def get_links(folder_name: str = "Airbus Applying") -> List[str]:
+def get_links(folder_name: str = "Low") -> List[str]:
     """
     Return every link (<A HREF=…>) that sits inside one specific bookmark folder.
 

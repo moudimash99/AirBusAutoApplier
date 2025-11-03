@@ -62,7 +62,7 @@ def extract_latex(text: str) -> str:
     return text[m1.start():m2.end()] if m1 and m2 else ""
 
 
-def main():
+def create_latex_cover_letter(job_description: str) -> None:
     load_dotenv()
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
@@ -72,9 +72,8 @@ def main():
     extended = read(EXTENDED_CV_FILE)
     template = read(TEMPLATE_FILE)
     rules    = read(RULES_FILE)
-    job      = read(JOB_FILE)
 
-    user_payload = USER_TMPL.format(extended=extended, template=template, rules=rules, job=job)
+    user_payload = USER_TMPL.format(extended=extended, template=template, rules=rules, job=job_description)
 
     client = OpenAI(api_key=api_key)
     resp = client.chat.completions.create(
@@ -95,6 +94,8 @@ def main():
 
     OUTPUT_FILE.write_text(latex, encoding="utf-8")
     print(f"[OK] Wrote {OUTPUT_FILE}")
+    return OUTPUT_FILE
 
 if __name__ == "__main__":
-    main()
+    job_description      = read(JOB_FILE)
+    create_latex_cover_letter(job_description)

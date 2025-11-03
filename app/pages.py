@@ -19,7 +19,7 @@ class JobPage:
         # Sometimes an extra sign-in click
         try: self.u.click(loc.signin2_xpath)
         except: pass
-    def experience_page(self, cv_path: Path):
+    def experience_page(self, cv_path: Path, cover_letter_path: Path):
         
         # Delete any pre-uploaded CVs
         for _ in range(2):
@@ -28,7 +28,7 @@ class JobPage:
             except:
                 break
 
-        upload_files_example( self.u.d, [cv_path])
+        upload_files_example( self.u.d, [cv_path,cover_letter_path])
         self.u.click(loc.save_cont_path)
         
     def select_source(self):
