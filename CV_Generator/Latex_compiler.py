@@ -2,6 +2,20 @@ import subprocess, shutil, re, unicodedata
 from pathlib import Path
 from datetime import datetime
 import PyPDF2
+import re, unicodedata
+
+def safe_filename(name: str, maxlen: int = 80) -> str:
+    # Normalize accents
+    name = unicodedata.normalize("NFKD", name)
+    name = name.encode("ascii", "ignore").decode("ascii")
+    # Replace Windows-illegal chars: <>:"/\|?* and control chars
+    name = re.sub(r'[<>:"/\\|?*\x00-\x1F]', "_", name)
+    # Collapse spaces and dups
+    name = re.sub(r"\s+", "_", name)
+    name = re.sub(r"_+", "_", name).strip("._-")
+    # Avoid empty/too long
+    name = name[:maxlen] or "file"
+    return name
 
 def build_pdf(
     tex_path: Path,
@@ -16,7 +30,8 @@ def build_pdf(
 ) -> Path:
     tex_path = Path(tex_path).resolve()
     workdir  = tex_path.parent if workdir is None else Path(workdir)
-    jobname  = (jobname or tex_path.stem).replace(" ", "_")[:60]
+    # jobname  = (jobname or tex_path.stem).replace(" ", "_")[:60]
+    jobname  = safe_filename(jobname or tex_path.stem, maxlen=80)
 
     # (0) write updated .tex if provided
     if tex_source is not None:

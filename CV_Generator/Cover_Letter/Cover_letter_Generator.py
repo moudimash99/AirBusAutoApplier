@@ -20,12 +20,15 @@ TEMPERATURE    = 0.2
 MAX_TOKENS_OUT = 3500       # fits a 1‑page LaTeX CV
 
 BASE_DIR = Path("CV_Generator")  # <— all files live here
+COVER_LETTER_DIR = BASE_DIR / "Cover_Letter"
 EXTENDED_CV_FILE = BASE_DIR / "extended_cv_structured.json"
-TEMPLATE_FILE    = BASE_DIR / "CV.tex"
-RULES_FILE       = BASE_DIR / "PROMPT.md"
+
 JOB_FILE         = BASE_DIR / "job.txt"
-OUTPUT_FILE      = BASE_DIR / "output.tex"
-RAW_OUTPUT_FILE  = BASE_DIR / "raw_response.tex"
+
+TEMPLATE_FILE    = COVER_LETTER_DIR / "Cover_letter.tex"
+RULES_FILE       = COVER_LETTER_DIR / "PROMPT.md"
+OUTPUT_FILE      = COVER_LETTER_DIR / "output.tex"
+RAW_OUTPUT_FILE  = COVER_LETTER_DIR / "raw_response.tex"
 # ------------------------------------------------------------------
 
 SYSTEM_MSG = r"""You write cover letters that sound like a real person. Output a single, compile-ready LaTeX document that begins with \documentclass and ends with \end{document}. No explanations, code fences or extra text."""

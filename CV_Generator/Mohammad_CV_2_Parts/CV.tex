@@ -16,6 +16,7 @@
 
 \begin{document}
 
+
 %================= HEADER =================
 \namesection{Mohammad Machaka}{%
   \href{mailto:machaka.mohammad@gmail.com}{machaka.mohammad@gmail.com}
@@ -25,14 +26,13 @@
   ~~|~~ \href{https://linkedin.com/in/mohammad-machaka-a63685172}{linkedin.com/in/mohammad-machaka-a63685172}
 }
 
-
 %============= TWO COLUMNS ===============
 \begin{minipage}[t]{0.30\textwidth}
 
 % ---- Profile ----
 \section{Profile}
 {\small
-Systems-minded software \& cloud engineer pivoting into Systems Engineering via ISAE-SUPAERO SEN (2025–2026). I drive MBSE adoption by turning stakeholder needs into requirements, architecture, behavior analysis, verification \& test planning, and clear interface contracts (ICDs/traceability). I build compelling demos and integrations in Python/TypeScript/Java, and operate data-intensive services with measurable SLOs and strong observability.
+Systems-minded software and cloud engineer (AWS SAA-C03) deepening my systems perspective through the ISAE-SUPAERO SEN programme. I like clean logic, traceable systems, and work that lasts. My instinct is to bring order , to understand how each piece fits and make it simpler to change later. I’m steady under uncertainty, patient with details, and I like when a design feels elegant because it’s clear.
 }
 \sectionsep
 
@@ -40,19 +40,23 @@ Systems-minded software \& cloud engineer pivoting into Systems Engineering via 
 \section{Skills}
 {\normalsize
 \skillsec{Systems Engineering}{
-Requirements • system architecture • behavior analysis • V\&V \& test planning • ICDs \& interface mgmt • traceability • MBSE (SysML/UML; ARCADIA/Capella) • PLM/CM • DOORS-class tools (exposure)
+Requirements \& ICDs • V-model • V\&V • ISO/IEC 15288 • SysML/Capella • DOORS • Lifecycle \& traceability mindset
 }
-\skillsec{Software}{
-Python • JavaScript/TypeScript (Node/Express) • Java • C++ • REST APIs • integrations \& plugins • test automation
+
+\skillsec{Data / Geospatial}{
+Airflow/ETL orchestration • Rasterio/GDAL • Google Earth Engine • Data cleaning automation
 }
-\skillsec{Cloud \& DevOps}{
-AWS • Terraform • Kubernetes • Docker • GitHub Actions • IaC • CI/CD • GitOps
+
+\skillsec{Cloud / DevOps}{
+AWS • Terraform • Kubernetes • Docker • Helm • GitHub Actions • IaC CI/CD pipelines
 }
-\skillsec{Data \& Geo}{
-Airflow • Rasterio/GDAL • Google Earth Engine • STAC • MongoDB • Redis • PostGIS
+
+\skillsec{Software Engineering}{
+Python/FastAPI • Node/Express (TypeScript) • C++ • REST API • PostGIS • MongoDB • Redis
 }
-\skillsec{Enablement}{
-Stakeholder/customer demos • enablement sessions • documentation • runbooks
+
+\skillsec{Observability \& Reliability}{
+Prometheus • Grafana • Alertmanager • SLOs \& alerting design • Service health dashboards • Tracing/logging culture
 }
 }
 \sectionsep
@@ -61,36 +65,45 @@ Stakeholder/customer demos • enablement sessions • documentation • runbook
 \section{Certifications}
 \href{https://www.credly.com/badges/14c4b7ac-8600-4f71-9d0e-db6fc67de835/linked_in?t=t3enca}{AWS
  Solutions Architect — Associate (SAA-C03)}
+ \sectionsep
+
+% ---- Languages ----
+\section{Languages}
+English (Fluent) • French (Advanced) • Arabic (Fluent)
 \sectionsep
 
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.67\textwidth}
+
 % ---- Experience ----
 \section{Experience}
 
 \runsubsection{Green Praxis}
 \descript{| Cloud \& Data Engineer \textbullet\ Permanent}
-\location{Jan 2025 -- Present • Aix-en-Provence, FR}
+\location{Jan 2025 -- Aug 2025 • Aix-en-Provence, FR}
 \vspace{\topsep}
 \begin{editblock}
 \begin{tightemize}
-\item Migrated static tiles to \textbf{on-demand} rendering (FastAPI+GEE): storage $\downarrow$80\%, refresh $<$30\,min, ingestion $\uparrow$6x.
-\item Established \textbf{ICDs/SLOs} across services; \textbf{observability} with dashboards \& alerts; authored \textbf{runbooks} for ops V\&V.
-\item Orchestrated Sentinel/Landsat DAGs (Airflow, Rasterio/GDAL, STAC); parse time $\downarrow\sim$80\%.
+\item Built and maintained \textbf{Airflow} DAGs to ingest multi-band Sentinel/Landsat scenes (cloud mask, reprojection, mosaics with Rasterio/GDAL) and recorded metadata in MongoDB.
+\item Re-architected static tiles to \textbf{on-demand} rendering (FastAPI + Google Earth Engine + Redis): storage $\downarrow$80\%; map refresh $<$30 min; ingestion throughput $\uparrow\times6$.
+\item Deployed \textbf{Prometheus/Grafana/Alertmanager} and instrumented services; alerts cover critical paths and support SLO tracking.
 \end{tightemize}
 \end{editblock}
+\textbf{Stack:} Terraform, AWS (EKS/EC2/S3/IAM), Kubernetes, Airflow, Prometheus, Grafana, FastAPI, Express.js (TS), Python, Docker, MongoDB, Redis
 \sectionsep
 
 \runsubsection{Airbus}
 \descript{| Data Engineer \textbullet\ Internship/Apprenticeship}
-\location{Jan 2023 -- Jun 2024 • Toulouse, FR}
+\location{Jan 2023 -- Jun 2024 • Toulouse (Saint-Martin), FR}
 \begin{editblock}
 \begin{tightemize}
-\item Standardized multi-region HR datasets with quality gates: release time $\downarrow\sim$80\%, manual errors $\downarrow\sim$90\%.
-\item \textbf{OPTIMATE} exchange: elicited needs/constraints; mapped producers/consumers, \textbf{interfaces \& SLAs}; delivered monitored data-flow.
+\item Developed \textbf{C++} real-time data streams for the OPTIMATE programme (high throughput; profiling \& robustness improvements).
+\item Built \textbf{Python} ETL to collect, clean, and standardise HR datasets across 5 regions; reduced dashboard release time by $\sim$80\%.
+\item Wrote concise indicators and runbooks so teams could reuse and maintain the pipelines.
 \end{tightemize}
 \end{editblock}
+\textbf{Stack:} C++, Python, PostGIS, Workday, Postman, Azure DevOps, Jenkins, Docker
 \sectionsep
 
 \runsubsection{Murex Systems}
@@ -98,14 +111,11 @@ Stakeholder/customer demos • enablement sessions • documentation • runbook
 \location{May 2021 -- Jan 2022 • Beirut, LB}
 \begin{editblock}
 \begin{tightemize}
-\item Built a \textbf{log-analysis} platform surfacing 50+ unseen error patterns; improved uptime and TTR.
-\item Led a 3-dev Scrum team; modular architecture, CI/CD, \textbf{clear interfaces}; gathered \& refined requirements with clients.
+\item Designed a log-analysis demonstrator that surfaced \textbf{50+} previously unseen error patterns; improved time-to-root-cause.
+\item Shipped an MVP on Kubernetes/Docker; led a 3-developer Scrum team (scope, reviews, delivery).
 \end{tightemize}
 \end{editblock}
-\sectionsep
-
-% concise tech line (optional)
-\emph{Tech: AWS, Terraform, Kubernetes, Airflow, Python, C++, PostGIS, Docker, Jenkins, Azure DevOps, Redis, Node/TS}
+\textbf{Stack:} Python, Jenkins, Docker, Terraform, Kubernetes
 \sectionsep
 
 % ---- Education ----
@@ -113,10 +123,10 @@ Stakeholder/customer demos • enablement sessions • documentation • runbook
 
 \runsubsection{ISAE-SUPAERO}
 \descript{| Mastère Spécialisé\textsuperscript{\textregistered} Systems Engineering (SEN)}
-\location{Sep 2025 -- Oct 2026 (expected) • Toulouse}
+\location{Sep 2025 -- Oct 2026 (exp.) • Toulouse}
 \begin{editblock}
 \begin{tightemize}
-\item MBSE (SysML/Capella), requirements, architecture, V\&V, dependability/safety, PLM/CM, EVM.
+\item Focus: MBSE (SysML/Capella), requirements/ICDs, system architecture, V\&V, lifecycle (ISO/IEC 15288).
 \end{tightemize}
 \end{editblock}
 \sectionsep
@@ -127,19 +137,19 @@ Stakeholder/customer demos • enablement sessions • documentation • runbook
 \sectionsep
 
 \runsubsection{American Univ. of Beirut}
-\descript{| B.Sc. Computer Science • Minor Business Administration}
+\descript{| B.Sc. Computer Science \textbullet\ Minor Business Administration}
 \location{Sep 2017 -- Jun 2020 • Beirut}
 \begin{editblock}
 \begin{tightemize}
-\item Awards: LCPC RU (2019); Valedictorian (2017/18); AGFE Scholar.
+\item LCPC Competitive Programming — 2\textsuperscript{nd} place; Valedictorian 2017/18.
 \end{tightemize}
 \end{editblock}
 \sectionsep
 
-% ---- Projects ----
+% ---- Projects (selected) ----
 \section{Projects (selected)}
-\textbf{SUNSPEAR} — Systems Engineer: CONOPS; needs$\rightarrow$requirements; ICDs; V\&V strategy; SRR/SDR packets; decision log \& risk register.\\
-\textbf{HydroART} — Systems Engineer: Mission architecture; subsystem decomposition; mass/power/data budgets; interface control; verification cross-reference matrix.
+\textbf{SUNSPEAR} — Systems Engineer: CONOPS; needs \(\rightarrow\) requirements; ICD skeletons; V\&V approach; review packets (SRR/PDR-like).\\
+\textbf{HydroART} — Systems Engineer: Mission architecture; preliminary budgets; interface control; verification matrix.
 
 \end{minipage}
 

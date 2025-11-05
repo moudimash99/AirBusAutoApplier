@@ -14,3 +14,13 @@ CV_Generator/Mohammad_CV_2_Parts/mohammad_main_CV.pdf
 CV_Generator/Mohammad_CV_2_Parts/mohammad_main_CV.xdv
 CV_Generator/Mohammad_CV_2_Parts/publications.bib
 CV_Generator/Mohammad_CV_2_Parts/fonts/*
+CV_Generator/Mohammad_CV_2_Parts/output/*
+CV_Generator/Cover_Letter/output/*
+CV_Generator/Cover_Letter/CV.out
+CV_Generator/Cover_Letter/CV.fls
+CV_Generator/Cover_Letter/CV.fdb_latexmk
+CV_Generator/Cover_Letter/CV.xdv
+.gitignore
+CV_Generator/Cover_Letter/CV.log
+.gitignore
+*/*.pyc
