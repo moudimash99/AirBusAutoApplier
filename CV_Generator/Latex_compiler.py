@@ -87,7 +87,7 @@ def build_pdf(
 
     out_dir = workdir / "output"
     out_dir.mkdir(parents=True, exist_ok=True)
-    stamped = out_dir / f"{jobname}_{datetime.now():%Y%m%d_%H%M%S}.pdf"
+    stamped = out_dir / f"{jobname}_{datetime.now():%Y%m%d}.pdf"
     shutil.move(str(pdf_src), stamped)
     return stamped
 

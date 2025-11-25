@@ -24,3 +24,6 @@ CV_Generator/Cover_Letter/CV.xdv
 CV_Generator/Cover_Letter/CV.log
 .gitignore
 */*.pyc
+input/*
+CV_Generator/Cover_Letter/raw_response.tex
+CV_Generator/Cover_Letter/output.tex

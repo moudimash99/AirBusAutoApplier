@@ -166,7 +166,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Scrape job links and extract descriptions.")
     parser.add_argument("--output-dir", type=str, default=None, help="Custom output directory")
-    parser.add_argument("--max-pages", type=int, default=30, help="Max pages to traverse")
+    parser.add_argument("--max-pages", type=int, default=5, help="Max pages to traverse")
     args = parser.parse_args()
 
     main_get_links(output_dir=args.output_dir, max_pages=args.max_pages, redo_misses=False)
