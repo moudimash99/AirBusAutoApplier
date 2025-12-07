@@ -19,6 +19,15 @@
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "justMyCode": true
+        },
+        {
+            "name": "Python Debugger: Launch scrapper",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scrap_jobboard.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
         }
     ]
 }

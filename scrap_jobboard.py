@@ -70,8 +70,10 @@ def _extract_desc(driver, link: str) -> str:
     """
     Handle both extractor signatures and normalize to a string.
     """
+    import time
     # Navigate first to stabilize page state
     driver.get(link)
+    time.sleep(0.3)  # allow page to load
     try:
         res = extract_job_description(driver, timeout=10, expand_show_more=True)
     except TypeError:

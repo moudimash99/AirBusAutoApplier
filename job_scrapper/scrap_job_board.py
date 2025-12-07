@@ -211,6 +211,8 @@ def collect_all_job_links(
     driver.get(DEFAULT_URL)
     import time;time.sleep(1)
     while True:
+        # add a sleep of 0.5s to allow page to stabilize
+        time.sleep(0.5)
         # Collect current page
         urls = collect_links_on_current_page(driver, href_filter=href_filter)
         if len(urls) != 20:
